@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogActions, Button, IconButton, Typography, Box } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, IconButton, Typography, Box } from '@mui/material';
 import Grid2 from '@mui/material/Grid2';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -8,7 +8,7 @@ import FastForwardIcon from '@mui/icons-material/FastForward';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 
-function CalendarModal({ open, onClose, completionDates }) {
+function CalendarModal({ open, onClose, completionDates = {} }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const selectedYear = selectedDate.getFullYear();
   const selectedMonth = selectedDate.getMonth(); 
@@ -52,11 +52,11 @@ function CalendarModal({ open, onClose, completionDates }) {
           </IconButton>
         </Box>
         <DialogContent>
-          <Grid2 container spacing={3}>
+          <Grid2 container spacing={2}>
             {daysArray.map((day) => {
               const dateObj = new Date(selectedYear, selectedMonth, day);
               const dateStr = formatDate(dateObj);
-              const status = completionDates[dateStr];
+              const status = completionDates[dateStr] || null; // ensure status is null if not defined
               return (
                 <Grid2 xs={2} key={day} sx={{ textAlign: 'center' }}>
                   {status === "complete" ? (

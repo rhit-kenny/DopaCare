@@ -27,7 +27,6 @@ function Home() {
     }
   };
 
-  // Lifted state for ActivityTree's expand/collapse functionality.
   const [activityOpen, setActivityOpen] = useState({
     daily: true,
     weekly: true,
@@ -43,20 +42,30 @@ function Home() {
     setActivityOpen({ daily: false, weekly: false, monthly: false, yearly: false });
   };
 
+  const username = localStorage.getItem('username') || 'Username';
+
   return (
     <Container sx={{ pt: 4, pb: 4 }}>
-      <QuoteSection />
-
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
-        <Typography variant="h2" sx={{ fontSize: 40 }}>Road to Grand Prize</Typography>
-        <Button variant="contained" onClick={resetGauge}>Reset</Button>
+      {/* Greeting */}
+      <Box sx={{ mb: 2 }}>
+        <Typography variant="h5" align="center">
+          Welcome, {username}!
+        </Typography>
       </Box>
 
+      {/* Quote Section */}
+      <QuoteSection />
+
+      {/* Progress Section */}
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
+        <Typography variant="h2">Your Progress</Typography>
+        <Button variant="outlined" onClick={resetGauge}>Reset</Button>
+      </Box>
       <Gauge progress={gaugeProgress} />
 
       {/* Activity Cards Title with Expand/Collapse Buttons */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 10, mb: 2 }}>
-        <Typography variant="h2" sx={{ fontSize: 40 }}>Activity Cards</Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 4, mb: 2 }}>
+        <Typography variant="h2">Activity Cards</Typography>
         <Box sx={{ display: 'flex', gap: 1 }}>
           <Button variant="contained" onClick={expandAll}>Expand All</Button>
           <Button variant="contained" onClick={collapseAll}>Collapse All</Button>

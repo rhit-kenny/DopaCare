@@ -1,9 +1,11 @@
 import { createTheme } from '@mui/material/styles';
 
+const storedColor = localStorage.getItem('themeColor') || '#800000';
+
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#800000',
+      main: storedColor,
     },
   },
   components: {
