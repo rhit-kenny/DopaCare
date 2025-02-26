@@ -1,0 +1,29 @@
+{
+  "name": "dopa-cure",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fontsource/roboto": "^5.1.1",
+    "@mui/icons-material": "^6.4.4",
+    "@mui/material": "^6.4.4",
+    "@tailwindcss/vite": "^4.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "firebase": "^11.2.0",
+    "lucide-react": "^0.475.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.1.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.9",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.9"
+  }
+}
